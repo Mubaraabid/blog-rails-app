@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
   validates :title, presence: true, length: { minimum: 2 }
   validates :body, presence: true, length: { minimum: 10 }
-  
+
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :likes, as: :likeable, dependent: :destroy
@@ -18,16 +18,15 @@ class Article < ApplicationRecord
   end
 
   def crop_image
-
     @image_processing = true
 
     blob = image.blob
-    
+
     image_path = ActiveStorage::Blob.service.send(:path_for, blob.key)
     processed_image = MiniMagick::Image.open(image_path)
-    
+
     processed_image.crop "#{crop_width}x#{crop_height}+#{crop_x}+#{crop_y}"
-    
+
     processed_image_io = StringIO.new
     processed_image.write(processed_image_io)
     processed_image_io.rewind
