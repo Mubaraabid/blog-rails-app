@@ -1,6 +1,6 @@
 <div class="container py-5">
   <div class="flex space-x-4 font-sans font-bold text-base  justify-content-end">
-      <%= link_to "Back", root_path, class: "text-decoration-none text-black " %>
+      <%= link_to "Back", authenticated_root_path, class: "text-decoration-none text-black " %>
       <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'text-decoration-none text-black ' %>
   </div>
 

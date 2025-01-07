@@ -43,7 +43,7 @@ class ArticlesController < ApplicationController
     authorize @article
     @article.destroy
 
-    redirect_to root_path, status: :see_other
+    redirect_to authenticated_root_path, status: :see_other
   end
 
   private
