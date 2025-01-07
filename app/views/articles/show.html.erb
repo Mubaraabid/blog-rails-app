@@ -3,7 +3,7 @@
 <div class="container py-5">
    <div class="d-flex justify-between mb-3">
         <div>
-         <%= link_to "Back", root_path, class: "font-sans font-bold text-base text-decoration-none text-black" %>
+         <%= link_to "Back", authenticated_root_path, class: "font-sans font-bold text-base text-decoration-none text-black" %>
         </div>
 
         <div class="flex justify-content-end ">
@@ -79,5 +79,5 @@
     </div>
 </div>
 <% else %>
-<%= button_to "Sign in", new_user_session_path %>
+<%= button_to "Sign in", unauthenticated_root_path %>
 <% end %>
