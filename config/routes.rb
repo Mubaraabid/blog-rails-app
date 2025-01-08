@@ -12,9 +12,6 @@ Rails.application.routes.draw do
   get '/articlelist', to: 'articles#articlelist', as: 'articlelist', defaults: { format: :turbo_stream }
 
   resources :articles do
-    member do
-      get :preview
-    end
     resources :likes, only: [:create]
     resources :comments do
       resources :likes, only: [:create]
