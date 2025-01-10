@@ -3,7 +3,7 @@
 <div class="container py-5">
    <div class="d-flex justify-between mb-3">
         <div>
-         <%= link_to "Back", root_path, class: "font-sans font-bold text-base text-decoration-none text-black" %>
+         <%= link_to "Back", authenticated_root_path, class: "font-sans font-bold text-base text-decoration-none text-black" %>
         </div>
 
         <div class="flex justify-content-end ">
@@ -58,26 +58,29 @@
             </div>
 
             <div class="pt-3">
+              <ul>
+                <h6>Responses(<%= @article.comments.count %>)</h6>
+                
+                <div class="comment-container">
+                  <%= form_with model: [@article, Comment.new] do |f| %>
+                      <%= f.text_area :body, placeholder: "What are your thoughts?", class: "comment-body" %><br>
+                      <%= f.hidden_field :article_id, value: @article.id %>
+                      <div class="d-flex justify-content-end mt-2">
+                          <%= f.submit "Respond", class: "rounded-md bg-green-100 text-decoration-none py-2 px-4 text-center text-white hover:bg-green-300 mt-2 text-sm shadow-md" %>
+                      </div>
+                  <% end %>
+                </div>
+
                 <ul>
-                    <h6>Responses(<%= @article.comments.count %>)</h6>
-                    <div class="comment-container">
-                        <%= form_with model: [@article, Comment.new] do |f| %>
-                            <%= f.text_area :body, placeholder: "What are your thoughts?", class: "comment-body" %><br>
-                            <%= f.hidden_field :article_id, value: @article.id %>
-                            <div class="d-flex justify-content-end mt-2">
-                                <%= f.submit "Respond", class: "rounded-md bg-green-100 text-decoration-none py-2 px-4 text-center text-white hover:bg-green-300 mt-2 text-sm shadow-md" %>
-                            </div>
-                        <% end %>
-                    </div>
-                    <ul>
-                        <%= render @article.comments, article:@article %>
-                    </ul>
+                  <%= render @article.comments, article:@article %>
                 </ul>
+              
+              </ul>
             </div>
         </div>
         <% end %>
     </div>
 </div>
 <% else %>
-<%= button_to "Sign in", new_user_session_path %>
+<%= button_to "Sign in", unauthenticated_root_path %>
 <% end %>
