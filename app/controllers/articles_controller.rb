@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_articles, only: %i[index articlelist]
+  before_action :set_articles, only: %i[index articles_list]
   before_action :set_article, only: %i[show edit update destroy]
 
   def index
@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def articlelist; end
+  def articles_list; end
 
   def show; end
 

@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  attr_accessor :crop_x, :crop_y, :crop_width, :crop_height
+
   validates :title, presence: true, length: { minimum: 2 }
   validates :body, presence: true, length: { minimum: 10 }
   validates :image, presence: true
@@ -7,8 +9,6 @@ class Article < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :likes, as: :likeable, dependent: :destroy
   has_one_attached :image
-
-  attr_accessor :crop_x, :crop_y, :crop_width, :crop_height
 
   after_commit :crop_image, if: :should_crop_image?
 
