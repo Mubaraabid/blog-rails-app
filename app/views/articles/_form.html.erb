@@ -24,7 +24,7 @@
                   <%=
                     form.label :title,
                                class: 'form-label text-base font-sans font-bold'
-                  %><br />
+                  %><br>
                   <%=
                     form.text_field :title,
                                     class: 'form-control',
@@ -39,14 +39,14 @@
                   <%=
                     form.label :Description,
                                class: 'form-label text-base font-sans font-bold'
-                  %><br />
+                  %><br>
                   <%=
                     form.text_area :body,
                                    class: 'form-control',
                                    placeholder: 'Tell your story...',
                                    rows: 6
                   %>
-                  <br />
+                  <br>
                   <% article.errors.full_messages_for(:body).each do |message| %>
                     <div class="error-message"><%= message %></div>
                   <% end %>

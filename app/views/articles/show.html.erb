@@ -34,9 +34,8 @@
           <h1 class="px-5 flex items-center"><%= @article.title %></h1>
           <small class="text-sm text-muted px-5"><%=
               time_ago_in_words(@article.created_at)
-            %>
-            ago</small
-          >
+                                                 %>
+            ago</small>
         </div>
         <%=
           image_tag (@article.image),
@@ -94,7 +93,7 @@
                                 placeholder: 'What are your thoughts?',
                                 class:
                                   'bg-gray-600 text-sm border-none p-3 w-100'
-                  %><br />
+                  %><br>
                   <%= f.hidden_field :article_id, value: @article.id %>
                   <div class="d-flex justify-content-end mt-1">
                     <%=
