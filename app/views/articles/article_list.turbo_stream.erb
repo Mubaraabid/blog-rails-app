@@ -29,7 +29,7 @@
 
 <% if @articles.next_page %>
   <%= turbo_stream.replace "articles_pagination" do %>
-    <%= turbo_frame_tag "articles_pagination", src: articlelist_path(page: @articles.next_page), loading: :lazy do %>
+    <%= turbo_frame_tag "articles_pagination", src: article_list_path(page: @articles.next_page), loading: :lazy do %>
       <section class="bg-white dark:bg-gray-900" id="article_placeholder">
           <div class="container px-6 py-10 mx-auto animate-pulse">
               <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">

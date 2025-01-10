@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     root 'devise/sessions#new', as: :unauthenticated_root
   end
 
-  get '/articlelist', to: 'articles#articlelist', as: 'articlelist', defaults: { format: :turbo_stream }
+  get '/article_list', to: 'articles#article_list', as: 'article_list', defaults: { format: :turbo_stream }
 
   resources :articles do
     member do
