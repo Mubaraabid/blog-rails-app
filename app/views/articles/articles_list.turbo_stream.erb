@@ -1,4 +1,4 @@
-<%= turbo_stream.remove("article_placeholder") %>
+<%= turbo_stream.remove("articles_placeholder") %>
 
 <%= turbo_stream.append("articlelist") do %>
   <div class=" container flex flex-wrap gap-6 pb-4 justify-center">
@@ -30,11 +30,11 @@
 <% if @articles.next_page %>
   <%= turbo_stream.replace "articles_pagination" do %>
     <%= turbo_frame_tag "articles_pagination", src: articles_list_path(page: @articles.next_page), loading: :lazy do %>
-      <section class="bg-white dark:bg-gray-900" id="article_placeholder">
+      <section class="bg-white dark:bg-gray-900" id="articles_placeholder">
           <div class="container px-6 py-10 mx-auto animate-pulse">
               <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
                 <% for a in 1..8 do %>
-                  <%= render "article_placeholder" %>
+                  <%= render "articles_placeholder" %>
                 <% end %>
               </div>
           </div>

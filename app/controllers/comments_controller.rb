@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :find_commentable
-  before_action :set_comment, only: [:destroy]
+  before_action :set_commentable, only: [:destroy]
   before_action :set_article_id, only: [:create]
 
   def new
@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  def set_comment
+  def set_commentable
     @comment = Comment.find(params[:id])
     @article = Article.find(params[:article_id])
   end
